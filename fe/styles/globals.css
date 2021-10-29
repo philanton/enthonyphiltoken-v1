@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Noto Sans Regular */
+@font-face {
+  font-family: "Noto Sans";
+  src: url("/fonts/NotoSans-Regular.woff2") format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Noto Sans Bold */
+@font-face {
+  font-family: "Noto Sans";
+  src: url("/fonts/NotoSans-Bold.woff2") format('woff2');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@layer base {
+  body {
+    font-family: "Noto Sans", sans-serif;
+  }
+
+  h2 {
+    @apply text-gray-800 text-xl p-1 border-b-2 mb-4;
+  }
+}
+
+@layer components {
+  .dinobg {
+    background-image: url('/img/background.png');
+    @apply bg-cover h-screen p-12;
+  }
+
+  .gray-input {
+    @apply block text-gray-400 border-gray-400 border-b-2 my-4 w-full
+    focus:outline-none focus:border-yellow-300;
+  }
+
+  .btn-pr {
+    @apply text-sm bg-yellow-300 hover:bg-yellow-500 w-40 p-2;
+  }
+
+  .btn-sec {
+    @apply text-sm bg-gray-400 border-2 border-gray-400 hover:border-gray-600 w-40 p-2;
+  }
+}
