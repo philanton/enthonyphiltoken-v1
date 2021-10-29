@@ -14,7 +14,7 @@ export const Contract = ({ account, chainId }) => {
   const [supply, setSupply] = useState("0");
   const [price, setPrice] = useState("0");
   const [balance, setBalance] = useState("0");
-  const [amount, setAmount] = useState("0");
+  const [amount, setAmount] = useState("");
 
   const handleAmountChange = (e: ChangeEvent<HTMLInputElement>) => setAmount(e.target.value);
   const updateBalance = async () => {
@@ -24,12 +24,12 @@ export const Contract = ({ account, chainId }) => {
   const handleBuyToken = async () => {
     const numTokens = parseInt(amount);
     const priceInWei = parseInt(price);
-    console.log(numTokens, priceInWei)
     web3.eth.sendTransaction({
       from: account,
       to: config["chains"][chainId],
       value: `${numTokens * priceInWei}`
     })
+    setAmount("");
   }
 
   const getContractInfo = async () => {
